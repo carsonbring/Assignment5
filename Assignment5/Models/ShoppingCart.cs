@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Assignment5.Models
 {
-    public class Artist
+    public class ShoppingCart
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Genre { get; set; }
-        public List<Song> Songs { get; set; }
+        public int ShoppingCartId { get; set; }
+
+        
+        public List<Song> Songs { get; set; } = new List<Song>();
+
     }
+
 }

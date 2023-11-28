@@ -17,5 +17,20 @@ namespace Assignment5.Data
         public DbSet<Assignment5.Models.Artist> Artist { get; set; } = default!;
 
         public DbSet<Assignment5.Models.Song> Song { get; set; } = default!;
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Assignment5.Models.Song>()
+                .HasOne(s => s.Artist)
+                 .WithMany(a => a.Songs)
+                .HasForeignKey(s => s.ArtistId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Song>()
+                .HasOne(s => s.ShoppingCart)
+                .WithMany(sc => sc.Songs)
+                .HasForeignKey(s => s.ShoppingCartId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }
