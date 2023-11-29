@@ -2,7 +2,7 @@
 @model IEnumerable<Assignment5.Models.Song>
 
 
-<h1>Index</h1>
+<h1>Buy Songs</h1>
 
 @using (Html.BeginForm("Index", "Music", FormMethod.Post))
 {
@@ -89,6 +89,15 @@
       
         var selectedGenre = '@ViewBag.SelectedGenre';
         var selectedArtistId = '@ViewBag.SelectedArtistId';
+        var errorMessage = '@TempData["ErrorMessage"]';
+        var successMessage = '@TempData["SuccessMessage"]';
+        if (errorMessage) {
+            alert(errorMessage); // Show error popup
+        }
+
+        if (successMessage) {
+            alert(successMessage); // Show success popup
+        }
 
         if (selectedGenre) {
             document.getElementById('SelectedGenre').value = selectedGenre;

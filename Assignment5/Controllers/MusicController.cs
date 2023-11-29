@@ -47,6 +47,25 @@ public class MusicController : Controller
 
         return View(songs);
     }
+    public IActionResult AddToCart(int songId)
+    {
+        var song = _context.Song.Where(a => a.Id == songId).FirstOrDefault();
+        if (song != null)
+        {
+            if (ShoppingCart.Instance.Songs.Any(s => s.Id == songId))
+            {
+                TempData["ErrorMessage"] = "This song is already in the shopping cart.";
+            }
+            else
+            {
+                ShoppingCart.Instance.Songs.Add(song);
+                TempData["SuccessMessage"] = "Song successfully added to the shopping cart.";
+
+            }
+
+        }
+        return RedirectToAction("Index");
+    }
    
     
 

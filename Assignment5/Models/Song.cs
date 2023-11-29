@@ -13,10 +13,7 @@ namespace Assignment5.Models
         public int ArtistId { get; set; }
         public Artist Artist { get; set; }
 
-       
-        public int? ShoppingCartId { get; set; }
-
-        public ShoppingCart? ShoppingCart { get; set; }
+    
 
     }
 }

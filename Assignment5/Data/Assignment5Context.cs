@@ -26,11 +26,7 @@ namespace Assignment5.Data
                  .WithMany(a => a.Songs)
                 .HasForeignKey(s => s.ArtistId)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Song>()
-                .HasOne(s => s.ShoppingCart)
-                .WithMany(sc => sc.Songs)
-                .HasForeignKey(s => s.ShoppingCartId)
-                .OnDelete(DeleteBehavior.Restrict);
+            
         }
     }
 }
