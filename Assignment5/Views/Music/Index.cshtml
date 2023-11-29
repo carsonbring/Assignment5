@@ -1,0 +1,100 @@
+﻿
+@model IEnumerable<Assignment5.Models.Song>
+
+
+<h1>Index</h1>
+
+@using (Html.BeginForm("Index", "Music", FormMethod.Post))
+{
+    <div>
+        <label for="SelectedGenre">Select Genre: </label>
+        <select id="SelectedGenre" name="selectedGenre" onchange="this.form.submit()">
+            <option value="">-- Select Genre --</option>
+            @if (ViewBag.Genres != null)
+            {
+                @foreach (var genre in ViewBag.Genres as List<string>)
+                {
+                    <option value="@genre">
+                        @genre
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <label for="ArtistId">Select Artist: </label>
+        <select id="SelectedArtistId" name="selectedArtistId" onchange="this.form.submit()">
+            <option value="">-- Select Artist --</option>
+            @if (ViewBag.Artists != null)
+            {
+                @foreach (var artist in ViewBag.Artists as List<Assignment5.Models.Artist>)
+                {
+                    <option value="@artist.Id">
+                        @artist.Name
+                    </option>
+                }
+            }
+        </select>
+    </div>
+}
+@if (Model != null)
+{
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Song Title
+                    </th>
+                    <th>
+                        Artist
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Artist.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            <a asp-action="AddToCart" asp-route-songId="@item.Id">Add to Cart</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+    </table>
+    
+
+}else
+{
+<p>No songs found.</p>
+}
+
+@section Scripts {
+
+    <script>
+      
+        var selectedGenre = '@ViewBag.SelectedGenre';
+        var selectedArtistId = '@ViewBag.SelectedArtistId';
+
+        if (selectedGenre) {
+            document.getElementById('SelectedGenre').value = selectedGenre;
+        }
+        if (selectedArtistId) {
+            document.getElementById('ArtistId').value = selectedArtistId;
+        }
+    </script>
+}
