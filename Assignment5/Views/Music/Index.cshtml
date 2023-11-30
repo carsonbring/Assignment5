@@ -82,7 +82,96 @@
 {
 <p>No songs found.</p>
 }
+<br />
+<br />
+<br />
+@if (ViewBag.ShoppingCart != null && (ViewBag.ShoppingCart as List<Assignment5.Models.Song>).Any())
+{
+    <h2>Shopping Cart</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Song Title
+                </th>
+                <th>
+                    Artist
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
+            @foreach (var song in ViewBag.ShoppingCart as List<Assignment5.Models.Song>)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => song.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => song.Artist.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => song.Price)
+                    </td>
+                    <td>
+                        <a asp-action="RemoveFromCart" asp-route-songId="@song.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+    <p>Total Price: $@((ViewBag.ShoppingCart as List<Assignment5.Models.Song>).Sum(song => song.Price))</p>
+    <form asp-action="Checkout" method="post">
+        <!-- Email field -->
+        <div class="form-group">
+            <label for="Email">Email for receiving songs:</label>
+            <input type="email" class="form-control" id="Email" name="Email" required>
+            <!-- Optional: Add an error message for invalid email format -->
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Credit card fields -->
+        <div class="form-group">
+            <label for="CreditCardName">Cardholder Name:</label>
+            <input type="text" class="form-control" id="CreditCardName" name="CreditCardName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="CreditCardNumber">Credit Card Number:</label>
+            <input type="text" class="form-control" id="CreditCardNumber" name="CreditCardNumber" pattern="\d{16}" required>
+            <!-- Optional: Add an error message for invalid credit card format -->
+            <div class="invalid-feedback">Please enter a valid 16-digit credit card number.</div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="ExpirationDate">Expiration Date:</label>
+                <input type="text" class="form-control" id="ExpirationDate" name="ExpirationDate" placeholder="MM/YYYY" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$" required>
+                <!-- Optional: Add an error message for invalid date format -->
+                <div class="invalid-feedback">Please enter a valid expiration date in MM/YYYY format.</div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="CVC">CVC:</label>
+                <input type="text" class="form-control" id="CVC" name="CVC" pattern="\d{3}" required>
+                <!-- Optional: Add an error message for invalid CVC format -->
+                <div class="invalid-feedback">Please enter a valid 3-digit CVC code.</div>
+            </div>
+        </div>
+
+        <!-- Checkout button -->
+        <button type="submit" class="btn btn-primary">Checkout</button>
+    </form>
+
+}
+else
+{
+    <p>No songs in shopping cart.</p>
+}
 @section Scripts {
 
     <script>

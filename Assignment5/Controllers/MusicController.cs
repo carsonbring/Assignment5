@@ -6,7 +6,7 @@ using Assignment5.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
-
+using Microsoft.EntityFrameworkCore;
 public class MusicController : Controller
 {
     private readonly Assignment5Context _context;
@@ -20,7 +20,7 @@ public class MusicController : Controller
         var distinctGenres = _context.Artist.Select(a => a.Genre).Distinct().ToList();
         ViewBag.Genres = distinctGenres;
         ViewBag.SelectedGenre = selectedGenre;
-
+        ViewBag.ShoppingCart = ShoppingCart.Instance.Songs;
         IEnumerable<Song> songs = null;
 
         if (!string.IsNullOrEmpty(selectedGenre))
@@ -49,7 +49,7 @@ public class MusicController : Controller
     }
     public IActionResult AddToCart(int songId)
     {
-        var song = _context.Song.Where(a => a.Id == songId).FirstOrDefault();
+        var song = _context.Song.Where(a => a.Id == songId).Include(s => s.Artist).FirstOrDefault();
         if (song != null)
         {
             if (ShoppingCart.Instance.Songs.Any(s => s.Id == songId))
@@ -59,14 +59,38 @@ public class MusicController : Controller
             else
             {
                 ShoppingCart.Instance.Songs.Add(song);
-                TempData["SuccessMessage"] = "Song successfully added to the shopping cart.";
+                
 
             }
 
         }
         return RedirectToAction("Index");
     }
-   
-    
+
+    public IActionResult RemoveFromCart(int songId)
+    {
+        var songToRemove = ShoppingCart.Instance.Songs.FirstOrDefault(s => s.Id == songId);
+
+        if (songToRemove != null)
+        {
+            ShoppingCart.Instance.Songs.Remove(songToRemove);
+            
+        }
+        else
+        {
+            // Optionally, you can provide an error message using TempData if the song is not found.
+            TempData["ErrorMessage"] = "Song not found in the shopping cart.";
+        }
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Checkout()
+    {
+        ShoppingCart.Instance.Songs.Clear();
+        TempData["SuccessMessage"] = "Order Successful! Thanks for shopping at MusicShop.com";
+        return RedirectToAction("Index");
+    }
+
+
 
 }
