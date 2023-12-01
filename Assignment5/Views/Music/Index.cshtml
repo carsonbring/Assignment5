@@ -49,6 +49,9 @@
                         Artist
                     </th>
                     <th>
+                        Year
+                    </th>
+                    <th>
                         Price
                     </th>
                     <th></th>
@@ -64,6 +67,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Artist.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Price)
@@ -98,6 +104,9 @@
                     Artist
                 </th>
                 <th>
+                    Year
+                </th>
+                <th>
                     Price
                 </th>
                 <th></th>
@@ -113,6 +122,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => song.Artist.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => song.Year)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => song.Price)
