@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\carso\OneDrive\Desktop\Assignment5\Assignment5
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

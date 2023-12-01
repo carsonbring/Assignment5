@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Assignment5.Data;
 using Assignment5.Models;
 
-namespace Assignment5.Controllers
+namespace Assignment5.Views
 {
     public class ArtistsController : Controller
     {

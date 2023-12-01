@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Assignment5.Data;
 using Assignment5.Models;
 
-namespace Assignment5.Controllers
+namespace Assignment5.Views
 {
     public class SongsController : Controller
     {
@@ -22,9 +22,8 @@ namespace Assignment5.Controllers
         // GET: Songs
         public async Task<IActionResult> Index()
         {
-              return _context.Song != null ? 
-                          View(await _context.Song.ToListAsync()) :
-                          Problem("Entity set 'Assignment5Context.Song'  is null.");
+            var assignment5Context = _context.Song.Include(s => s.Artist);
+            return View(await assignment5Context.ToListAsync());
         }
 
         // GET: Songs/Details/5
@@ -36,6 +35,7 @@ namespace Assignment5.Controllers
             }
 
             var song = await _context.Song
+                .Include(s => s.Artist)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (song == null)
             {
@@ -48,6 +48,7 @@ namespace Assignment5.Controllers
         // GET: Songs/Create
         public IActionResult Create()
         {
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id");
             return View();
         }
 
@@ -56,14 +57,25 @@ namespace Assignment5.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price")] Song song)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,Year,ArtistId")] Song song)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(song);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(song);
+                    await _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                // Log the exception or handle it appropriately
+                ModelState.AddModelError("", "Error creating the song. Please check the provided data.");
+            }
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
             return View(song);
         }
 
@@ -80,6 +92,7 @@ namespace Assignment5.Controllers
             {
                 return NotFound();
             }
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
             return View(song);
         }
 
@@ -88,7 +101,7 @@ namespace Assignment5.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price")] Song song)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Year,ArtistId")] Song song)
         {
             if (id != song.Id)
             {
@@ -115,6 +128,7 @@ namespace Assignment5.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
             return View(song);
         }
 
@@ -127,6 +141,7 @@ namespace Assignment5.Controllers
             }
 
             var song = await _context.Song
+                .Include(s => s.Artist)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (song == null)
             {
