@@ -17,17 +17,19 @@ public class MusicController : Controller
     }
     public IActionResult Index(string? selectedGenre, int? selectedArtistId)
     {
+        //Setting ViewBag Variables to be used in the View
         var distinctGenres = _context.Artist.Select(a => a.Genre).Distinct().ToList();
         ViewBag.Genres = distinctGenres;
         ViewBag.SelectedGenre = selectedGenre;
         ViewBag.ShoppingCart = ShoppingCart.Instance.Songs;
         IEnumerable<Song> songs = null;
-
+        //Selecting artists to display based on the selected genre
         if (!string.IsNullOrEmpty(selectedGenre))
         {
             var artists = _context.Artist.Where(a => a.Genre == selectedGenre).ToList();
             ViewBag.Artists = artists;
             ViewBag.SelectedArtistId = selectedArtistId;
+            //Selecting the songs to display based on the selected artist
             if (selectedArtistId != null)
             {
                 songs = _context.Song
@@ -36,28 +38,30 @@ public class MusicController : Controller
             }
             else
             {
-                // If no artist is selected, show all songs for the selected genre
+                //If no artist is selected, show all songs for the selected genre
                 songs = _context.Song
                     .Where(s => s.Artist.Genre == selectedGenre)
                     .ToList();
             }
         }
 
-        // Other logic...
-
         return View(songs);
     }
     public IActionResult AddToCart(int songId)
     {
+        //Selectig the song where the ID is equal to the songId that is passed into the Asp-Action on the view
         var song = _context.Song.Where(a => a.Id == songId).Include(s => s.Artist).FirstOrDefault();
+       
         if (song != null)
         {
+            //If the song is already in the shopping cart, display an error message
             if (ShoppingCart.Instance.Songs.Any(s => s.Id == songId))
             {
                 TempData["ErrorMessage"] = "This song is already in the shopping cart.";
             }
             else
             {
+                //else, add the song to the shopping cart
                 ShoppingCart.Instance.Songs.Add(song);
                 
 
@@ -69,6 +73,7 @@ public class MusicController : Controller
 
     public IActionResult RemoveFromCart(int songId)
     {
+        //selectign the song to remove form the passed in song id
         var songToRemove = ShoppingCart.Instance.Songs.FirstOrDefault(s => s.Id == songId);
 
         if (songToRemove != null)
@@ -78,7 +83,7 @@ public class MusicController : Controller
         }
         else
         {
-            // Optionally, you can provide an error message using TempData if the song is not found.
+            //print error message 
             TempData["ErrorMessage"] = "Song not found in the shopping cart.";
         }
         return RedirectToAction("Index");

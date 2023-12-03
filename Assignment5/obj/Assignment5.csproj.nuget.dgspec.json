@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carso\\OneDrive\\Desktop\\Assignment5\\Assignment5\\Assignment5.csproj": {}
+    "C:\\Users\\carso\\Downloads\\Assignment5_BR\\Assignment5_BR\\Assignment5\\Assignment5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carso\\OneDrive\\Desktop\\Assignment5\\Assignment5\\Assignment5.csproj": {
+    "C:\\Users\\carso\\Downloads\\Assignment5_BR\\Assignment5_BR\\Assignment5\\Assignment5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carso\\OneDrive\\Desktop\\Assignment5\\Assignment5\\Assignment5.csproj",
+        "projectUniqueName": "C:\\Users\\carso\\Downloads\\Assignment5_BR\\Assignment5_BR\\Assignment5\\Assignment5.csproj",
         "projectName": "Assignment5",
-        "projectPath": "C:\\Users\\carso\\OneDrive\\Desktop\\Assignment5\\Assignment5\\Assignment5.csproj",
+        "projectPath": "C:\\Users\\carso\\Downloads\\Assignment5_BR\\Assignment5_BR\\Assignment5\\Assignment5.csproj",
         "packagesPath": "C:\\Users\\carso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carso\\OneDrive\\Desktop\\Assignment5\\Assignment5\\obj\\",
+        "outputPath": "C:\\Users\\carso\\Downloads\\Assignment5_BR\\Assignment5_BR\\Assignment5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

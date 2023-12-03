@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Assignment5
 build_property.RootNamespace = Assignment5
-build_property.ProjectDir = C:\Users\carso\OneDrive\Desktop\Assignment5\Assignment5\
+build_property.ProjectDir = C:\Users\carso\Downloads\Assignment5_BR\Assignment5_BR\Assignment5\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\carso\OneDrive\Desktop\Assignment5\Assignment5
+build_property.MSBuildProjectDirectory = C:\Users\carso\Downloads\Assignment5_BR\Assignment5_BR\Assignment5
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Admin/Index.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Create.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Artists/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Delete.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Artists/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Details.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Artists/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Edit.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Artists/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Artists/Index.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Artists/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Home/Index.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Home/Privacy.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Music/Index.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Music/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Shared/Error.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Songs/Create.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Songs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Songs/Delete.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Songs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Songs/Details.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Songs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Songs/Edit.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Songs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Songs/Index.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Songs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/_ViewImports.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/_ViewStart.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/carso/OneDrive/Desktop/Assignment5/Assignment5/Views/Shared/_Layout.cshtml]
+[C:/Users/carso/Downloads/Assignment5_BR/Assignment5_BR/Assignment5/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-49utv5pxgm

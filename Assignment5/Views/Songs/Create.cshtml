@@ -27,10 +27,22 @@
                 <input asp-for="Year" class="form-control" />
                 <span asp-validation-for="Year" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="ArtistId" class="control-label"></label>
-                <select asp-for="ArtistId" class ="form-control" asp-items="ViewBag.ArtistId"></select>
+                <label >Artist Name</label>
+                <br />
+                <select name="ArtistName">
+                    @for (int i = 0; i < Assignment5.Models.AllPerformers.myPerformers.Count; i++)
+                    {
+
+
+
+                        <option>@(Assignment5.Models.AllPerformers.myPerformers.ElementAt(i).Name)</option>
+                    }
+                </select>
+
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

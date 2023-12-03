@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Assignment5.Data;
 using Assignment5.Models;
 
-namespace Assignment5.Views
+namespace Assignment5.Controllers
 {
     public class ArtistsController : Controller
     {
@@ -22,9 +22,9 @@ namespace Assignment5.Views
         // GET: Artists
         public async Task<IActionResult> Index()
         {
-              return _context.Artist != null ? 
-                          View(await _context.Artist.ToListAsync()) :
-                          Problem("Entity set 'Assignment5Context.Artist'  is null.");
+            return _context.Artist != null ?
+                        View(await _context.Artist.ToListAsync()) :
+                        Problem("Entity set 'Assignment5Context.Artist'  is null.");
         }
 
         // GET: Artists/Details/5
@@ -56,8 +56,13 @@ namespace Assignment5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Genre")] Artist artist)
+        public async Task<IActionResult> Create(string Name,string Genre)
         {
+            Artist artist=new Artist();
+
+            artist.Name = Name;
+            artist.Genre = Genre;
+
             if (ModelState.IsValid)
             {
                 _context.Add(artist);
@@ -150,14 +155,14 @@ namespace Assignment5.Views
             {
                 _context.Artist.Remove(artist);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ArtistExists(int id)
         {
-          return (_context.Artist?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Artist?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

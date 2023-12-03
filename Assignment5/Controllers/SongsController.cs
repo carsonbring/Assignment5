@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Assignment5.Data;
 using Assignment5.Models;
 
-namespace Assignment5.Views
+namespace Assignment5.Controllers
 {
     public class SongsController : Controller
     {
@@ -57,17 +57,26 @@ namespace Assignment5.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,Year,ArtistId")] Song song)
+        public async Task<IActionResult> Create(int Id,string Name,decimal Price,int Year,string ArtistName)
         {
+            Song song=new Song();
+            song.Id = Id;
+            song.Name = Name;
+            song.Price = Price;
+            song.Year = Year;
+            song.ArtistId = _context.Artist.First(a => a.Name == ArtistName).Id;
+
             try
             {
-                if (ModelState.IsValid)
-                {
-                    _context.Add(song);
-                    await _context.SaveChanges();
-                    return RedirectToAction(nameof(Index));
-                }
-                
+                _context.Song.AddRange(song);
+                   
+
+                await _context.SaveChangesAsync();
+
+
+
+               
+
             }
             catch (Exception ex)
             {
@@ -75,8 +84,7 @@ namespace Assignment5.Views
                 // Log the exception or handle it appropriately
                 ModelState.AddModelError("", "Error creating the song. Please check the provided data.");
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
-            return View(song);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Songs/Edit/5
@@ -165,14 +173,14 @@ namespace Assignment5.Views
             {
                 _context.Song.Remove(song);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SongExists(int id)
         {
-          return (_context.Song?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Song?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
